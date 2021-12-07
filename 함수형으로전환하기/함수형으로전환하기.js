@@ -37,3 +37,20 @@ for (let i = 0; i < temp_users.length; i++) {
   ages.push(temp_users[i].age);
 }
 console.log(ages);
+
+// 2. _filter, _map으로 리팩토링
+function _filter(users, predi) {
+  let new_list = [];
+  for (let i = 0; i < users.length; i++) {
+    if (predi(users[i])) {
+      new_list.push(users[i]);
+    }
+    return new_list;
+  }
+}
+
+console.log(
+    _filter(users, function (user) {
+      return user.age >= 30;
+    })
+);
