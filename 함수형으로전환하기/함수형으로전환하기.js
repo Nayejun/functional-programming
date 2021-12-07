@@ -54,3 +54,19 @@ console.log(
       return user.age >= 30;
     })
 );
+console.log(
+    _filter(users, function (user) {
+      return user.age < 30;
+    })
+);
+console.log(
+    _filter([1, 2, 3, 4], function (num) {
+      return num % 2;
+    })
+);
+
+console.log(
+    _filter([1, 2, 3, 4], function (num) {
+      return !(num % 2);
+    })
+);
