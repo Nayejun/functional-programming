@@ -23,3 +23,4 @@ console.log(
     _reduce([1, 2, 3], add)
 );
 // 6
+add(add(1,2),3);
