@@ -1,4 +1,4 @@
-// 2. group_by
+// 2. _group_by
 let users = [
   {id: 1, name: 'ID', age: 36},
   {id: 2, name: 'BJ', age: 32},
@@ -9,7 +9,6 @@ let users = [
   {id: 7, name: 'JI', age: 31},
   {id: 8, name: 'MP', age: 23}
 ];
-
 // let users2 = {
 //   36: [{id: 1, name: 'ID', age: 36}],
 //   32: [{id: 2, name: 'BJ', age: 32}, {id: 3, name: 'JM', age: 32}],
@@ -56,11 +55,13 @@ let _inc = function (count, key) {
   count[key] ? count[key]++ : 1;
   return count;
 };
+
 let _count_by = _curryr(function (data, iter) {
   return _reduce(data, function (count, val) {
     return _inc(count, iter(val));
   }, {});
 });
+
 console.log(_count_by(users, function (user) {
       return user.age - user.age % 10;
     })
