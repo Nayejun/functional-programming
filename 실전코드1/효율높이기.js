@@ -1,12 +1,12 @@
 function find_user_by_id(user_id) {
   return _.find(users, function(user) {
-    return user.id == user_id;
+    return user.id === user_id;
   });
 }
 
 function find_comments_by_post_id(post_id) {
   return _.find(comments, function(comment) {
-    return comment.post_id == post_id;
+    return comment.post_id === post_id;
   });
 }
 
