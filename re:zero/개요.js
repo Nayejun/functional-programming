@@ -57,7 +57,9 @@ console.log(obj2.val);
 
 // JS는 변수에 함수를 담을 수 있다
 // 일급함수
-let f1 = function(a) {return a * a;};
+let f1 = function (a) {
+  return a * a;
+};
 console.log(f1);
 
 let f2 = add;
@@ -66,12 +68,19 @@ console.log(f2);
 function f3(f) {
   return f();
 }
-console.log(f3(function() {return 10;}));
-console.log(f3(function() {return 20;}));
 
-function add_maker(a) {
-  return function(b) {
+console.log(f3(function () {
+  return 10;
+}));
+console.log(f3(function () {
+  return 20;
+}));
+
+// TODO
+function add_maker(a) { // a는 변수이지만
+  return function (b) {
     return a + b;
+    // 여기서 참조를 할 뿐, 변경을 하고 있지는 않다, 항상 동일한 값을 가르킨다
   }
 }
 
@@ -84,3 +93,13 @@ let add15 = add_maker(15);
 
 console.log(add7(10));
 console.log(add15(10));
+
+function f4(f1, f2, f3) {
+  return f3(f1() + f2()); // 2 + 1 => 3
+}
+
+console.log(f4(
+    function () {return 2;},
+    function () {return 1;},
+    function (a) {return a * a;}
+));
